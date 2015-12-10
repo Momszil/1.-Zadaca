@@ -27,7 +27,7 @@
         /// Returnes the index of the item in the collection.
         /// If item is not found in the collection, method returns -1.
         /// </summary>
-        int IndexOf(int index);
+        int IndexOf(int item);
 
         /// <summary>
         /// Readonly property. Gets the number of items contained in the collection.
