@@ -49,9 +49,10 @@
     <Folder Include=".git\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IIntegerList.cs" />
-    <Compile Include="IntegerList.cs" />
-    <Compile Include="MainClass.cs" />
+    <Compile Include="CsharpVjestina\Dz1\Zadatak2\IGenericList.cs" />
+    <Compile Include="CsharpVjestina\Dz1\Zadatak1\IIntegerList.cs" />
+    <Compile Include="CsharpVjestina\Dz1\Zadatak1\IntegerList.cs" />
+    <Compile Include="CsharpVjestina\Dz1\MainClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
   <ProjectExtensions>

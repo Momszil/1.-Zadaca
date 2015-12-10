@@ -1,17 +1,17 @@
-﻿namespace CsharpVjestina.Dz1.Zadatak1
+﻿namespace CsharpVjestina.Dz1.Zadatak2
 {
-    public interface IIntegerList
+    public interface IGenericList<X>
     {
         /// <summary>
-        /// Adds an item to the collection.
+        /// Adds an item to the collection. 
         /// </summary>
-        void Add(int item);
+        void Add(X item);
 
         /// <summary>
-        /// Removes the first occurence of an item from the collection.
-        /// If the item was not found, method does nothing.
-        /// </summary>
-        bool Remove(int item);
+        /// Removes the first occurrence of an item from the collection. 
+        /// If the item was not found, method does nothing. 
+        /// </summary> 
+        bool Remove(X item);
 
         /// <summary>
         /// Removes the item at the given index in the collection.
@@ -19,21 +19,21 @@
         bool RemoveAt(int index);
 
         /// <summary>
-        /// Returnes the item at the given index in the collection.
+        /// Returns the item at the given index in the collection.
         /// </summary>
-        int GetElement(int index);
+        X GetElement(int index);
 
         /// <summary>
-        /// Returnes the index of the item in the collection.
+        /// Returns the index of the item in the collection.
         /// If item is not found in the collection, method returns -1.
         /// </summary>
-        int IndexOf(int item);
+        int IndexOf(X item);
 
         /// <summary>
         /// Readonly property. Gets the number of items contained in the collection.
         /// </summary>
         int Count { get; }
-
+        
         /// <summary>
         /// Removes all items from the collection.
         /// </summary>
@@ -42,6 +42,6 @@
         /// <summary>
         /// Determines whether the collection contains a specific value.
         /// </summary>
-        bool Contains(int item);
+        bool Contains(X item);
     }
 }
