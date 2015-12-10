@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace CsharpVjestina.Dz1.Zadatak1
+namespace CsharpVjestina.Dz1.Zadatak2
 {
-    public class IntegerList : IIntegerList
+    public class GenericList<X> : IGenericList<X>
     {
         /// <summary>
         /// Current size of our storage.
@@ -15,20 +15,20 @@ namespace CsharpVjestina.Dz1.Zadatak1
         /// <summary>
         /// Array with currently sotred data.
         /// </summary>
-        private int[] _internalStorage;
+        private X[] _internalStorage;
 
-        public IntegerList()
+        public GenericList()
         {
             _capacity = 4;
-            _internalStorage = new int[4];
+            _internalStorage = new X[4];
         }
 
-        public IntegerList(int initialSize)
+        public GenericList(int initialSize)
         {
             if (initialSize > 0)
             {
                 _capacity = initialSize;
-                _internalStorage = new int[initialSize];
+                _internalStorage = new X[initialSize];
             }
             else
             {
@@ -36,7 +36,15 @@ namespace CsharpVjestina.Dz1.Zadatak1
             }
         }
 
-        public void Add(int item)
+        public int Count
+        {
+            get
+            {
+                return _size;
+            }
+        }
+
+        public void Add(X item)
         {
             if (_capacity <= _size)
             {
@@ -49,7 +57,7 @@ namespace CsharpVjestina.Dz1.Zadatak1
         private void AllocateDouble()
         {
             _capacity *= 2;
-            int[] newStorage = new int[_capacity];
+            X[] newStorage = new X[_capacity];
             for (int i = 0; i < _capacity / 2; i++)
             {
                 newStorage[i] = _internalStorage[i];
@@ -57,28 +65,17 @@ namespace CsharpVjestina.Dz1.Zadatak1
             _internalStorage = newStorage;
         }
 
-        public int Count
-        {
-            get
-            {
-                return _size;
-            }
-        }
-
         public void Clear()
         {
-            for (int i = 0; i < _size; i++)
-            {
-                _internalStorage[i] = 0;
-            }
+            _internalStorage = new X[_capacity]; 
             _size = 0;
         }
 
-        public bool Contains(int item)
+        public bool Contains(X item)
         {
             for (int i = 0; i < _size; i++)
             {
-                if (_internalStorage[i] == item)
+                if (_internalStorage[i].Equals(item))
                 {
                     return true;
                 }
@@ -86,7 +83,7 @@ namespace CsharpVjestina.Dz1.Zadatak1
             return false;
         }
 
-        public int GetElement(int index)
+        public X GetElement(int index)
         {
             if (index > -1 && index < _size)
             {
@@ -98,11 +95,11 @@ namespace CsharpVjestina.Dz1.Zadatak1
             }
         }
 
-        public int IndexOf(int item)
+        public int IndexOf(X item)
         {
             for (int i = 0; i < _size; i++)
             {
-                if (item == _internalStorage[i])
+                if (item.Equals(_internalStorage[i]))
                 {
                     return i;
                 }
@@ -110,11 +107,11 @@ namespace CsharpVjestina.Dz1.Zadatak1
             return -1;
         }
 
-        public bool Remove(int item)
+        public bool Remove(X item)
         {
             for (int i = 0; i < _size; i++)
             {
-                if (item == _internalStorage[i])
+                if (item.Equals(_internalStorage[i]))
                 {
                     return RemoveAt(i);
                 }
@@ -128,6 +125,7 @@ namespace CsharpVjestina.Dz1.Zadatak1
             {
                 return false;
             }
+            
             if (index < _capacity - 1)
             {
                 for (int i = index; i < _size - 1; i++)
@@ -135,41 +133,12 @@ namespace CsharpVjestina.Dz1.Zadatak1
                     _internalStorage[i] = _internalStorage[i + 1];
                 }
             }
-            _internalStorage[_size - 1] = 0;
+
             _size--;
+            X[] newStorage = new X[_capacity];
+            Array.Copy(_internalStorage, newStorage, _size);
+            _internalStorage = newStorage;
             return true;
-        }
-
-        public void ListExample(IIntegerList listOfIntegers)
-        {
-            listOfIntegers.Add(1);
-            listOfIntegers.Add(2);
-            listOfIntegers.Add(3);
-            listOfIntegers.Add(4);
-            listOfIntegers.Add(5);
-            // lista je [1,2,3,4,5]
-
-            listOfIntegers.RemoveAt(0);
-            // Lista je [2,3,4,5]
-
-            listOfIntegers.Remove(5);
-            // Lista je [2,3,4]
-
-            Console.WriteLine(listOfIntegers.Count);
-            // 3
-
-            Console.WriteLine(listOfIntegers.Remove(100));
-            // false, nemamo element u vrijednosti 100
-            Console.WriteLine(listOfIntegers.RemoveAt(5));
-            // false, nemamo ništa na poziciji 5
-
-            Console.WriteLine(listOfIntegers.Contains(3) + ", " + listOfIntegers.IndexOf(3));
-            // true, imamo ga na poziciji 1      
-            Console.WriteLine(listOfIntegers.GetElement(1));
-
-            listOfIntegers.Clear();
-            Console.WriteLine(listOfIntegers.Count);
-            // 0
         }
     }
 }
