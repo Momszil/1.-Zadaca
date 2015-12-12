@@ -1,5 +1,5 @@
-V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\obj\x86\Debug\1. Zadaca.csprojResolveAssemblyReference.cache
 V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\bin\Debug\ConsoleApplication.exe
 V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\bin\Debug\ConsoleApplication.pdb
 V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\obj\x86\Debug\ConsoleApplication.exe
 V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\obj\x86\Debug\ConsoleApplication.pdb
+V:\Project Files\Visual Studio 2015\Projects\C#vj\1.-Zadaca\obj\x86\Debug\1. Zadaca.csprojResolveAssemblyReference.cache

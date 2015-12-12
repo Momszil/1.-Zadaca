@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CsharpVjestina\Dz1\Zadatak2\GenericList.cs" />
+    <Compile Include="CsharpVjestina\Dz1\Zadatak2\GenericListEnumerator.cs" />
     <Compile Include="CsharpVjestina\Dz1\Zadatak2\IGenericList.cs" />
     <Compile Include="CsharpVjestina\Dz1\Zadatak1\IIntegerList.cs" />
     <Compile Include="CsharpVjestina\Dz1\Zadatak1\IntegerList.cs" />

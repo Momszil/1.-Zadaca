@@ -27,15 +27,22 @@ namespace CsharpVjestina.Dz1
             Console.WriteLine(stringList.IndexOf("Hello")); // 0
             Console.WriteLine(stringList.GetElement(1)); // World
 
-            stringList.Clear();
-            Console.WriteLine(stringList.Count); // 0
-
             IGenericList<double> doubleList = new GenericList<double>();
             doubleList.Add(0.2);
             doubleList.Add(0.7);
             doubleList.Add(3.7);
             Console.WriteLine(doubleList.Remove(0.7)); // true
             Console.WriteLine(doubleList.Count); // 2
+            doubleList.Clear();
+            Console.WriteLine(doubleList.Count); // 0
+
+            // 4. Zadatak
+            Console.WriteLine("\n******* 4. Zadatak *******");
+
+            foreach (string value in stringList)
+            {
+                Console.WriteLine(value);
+            }
 
             Console.ReadKey();
 

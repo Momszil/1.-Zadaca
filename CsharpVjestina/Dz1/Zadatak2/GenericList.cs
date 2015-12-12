@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace CsharpVjestina.Dz1.Zadatak2
 {
@@ -139,6 +141,16 @@ namespace CsharpVjestina.Dz1.Zadatak2
             Array.Copy(_internalStorage, newStorage, _size);
             _internalStorage = newStorage;
             return true;
+        }
+
+        public IEnumerator<X> GetEnumerator()
+        {
+            return new GenericListEnumerator<X>(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
